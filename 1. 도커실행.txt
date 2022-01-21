@@ -1,0 +1,40 @@
+서버를 실행시키는데 module not found여서 뭐가 문제일까, 어디 경로에 무슨 글자 하나가 잘못 들어가져있나... 싶었는데
+
+-> db 연결을 안해서 나온 문제였다. 
+
+ 
+
+확인할 수 있는 방법
+terminal 켜서 curl로 어떤 정보 하나 나오는지 확인
+- curl은 사용자 상호 작용 없이 작동하도록 설계된 서버에서 또는 서버로 데이터를 전송하기 위한 명령줄 유틸리티
+
+"curl localhost:3000/terms/personal" 입력
+-> 예상했던 계약서 내용들이 나오지 않고 오류 메시지 뜸 (docker 연결 후에는 예상했던 계약서 내용 나옴) 
+ 
+
+2가지 문제
+
+1) docker 컨테이너가 실행중이지 않았음
+
+# 컴퓨터에서 docker 있는 위치로 이동
+# docker 폴더에서 ls 하면 여러개가 뜨는데 (dockerfile_dev		dockerfile_dev_hmev	dockerfile_dev_m4
+dockerfile_dev_hcarlife	dockerfile_dev_itcha	local_setting) 
+
+cd local_setting
+
+# local_setting에서 
+
+docker compose up
+이렇게 해서 컨테이너를 실행하려 했는데
+
+-> 오류 메시지 : Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+ 
+
+2) docker 어플리케이션을 실행중이지 않았음
+
+-> 고래🐳 클릭해서 실행시키기
+
+-> 이 다음에! 다시! 터미널에서 docker compose up을 해주면 드디어 docker가 실행된다. 
+
+ 
