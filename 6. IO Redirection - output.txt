@@ -1,0 +1,57 @@
+만약 내 폴더 안의 이 목록들을 저장하고 싶다면? 
+
+-> (resut.txt는 내가 그냥 명명해준 이름이며) > 가 포인트
+
+ 
+
+ls -l > result.txt
+ 
+
+
+cat으로 봐도 확인 가능
+ 
+
+
+지금 방금했던 실습으로 이 화면을 해석해보자면
+
+-> 동그라미가 ls
+
+ 
+
+command-line argument ) ls -l
+
+standard output ) 엔터 쳤을 때 나타나는 화면 (모니터에 출력)
+
+-> 이걸 redirect 해서 다른 곳에서 화면을 출력 가능
+
+    > 를 사용해서
+
+standard error) 오류는 중요하기에 별도로 출력해준다. 
+
+ 
+
+
+ 
+
+rm으로 rename2.txt를 삭제해줬는데 다시 삭제해주니까 (없는 파일 삭제하려 하니) 오류가 나지
+
+ 
+
+rm rename2.txt > result.txt 를 해주며 기대한건, result.txt라는 '파일'에 오류 메시지가 저장되기를 기대한건데
+
+-> 위 화면에서처럼 오류 메시지가 '화면(모니터)'에 나옴. 
+
+- 이유는 > 라는걸 써준거 자체가 standard output을 redirection하는 것이지, standard error를 redirection하는 것이 아니기 때문
+
+ 
+
+그리고 > 앞에는 1이 생략되어 있는 것 (표준 출력) 
+
+-> 내가 다른 파일에 에러를 출력하고 싶다면 rename2.txt 2> error.log
+
+ 
+
+rm rename2.txt 1>result.txt 2>error.log
+ 
+
+실행 결과 올바로게 되면 result.txt에 저장, 에러가 나면 error.log에 저장
