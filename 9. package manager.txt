@@ -1,0 +1,57 @@
+앱스토어와 비슷한 역할
+
+-> 대표적인 패키지 매니저는 apt, yum 
+
+ 
+
+cf) linux 명령어와 mac 명령어가 거의 동일하나 apt 명령어는 사용 불가 
+
+-> 맥에서는 homebrew를 사용함
+
+
+앞에 sudo를 붙여줘야 하고
+
+-> 지금 한 건 '목록'을 불러와준 것
+
+ 
+
+
+ 
+
+이건 그 목록 중에서 search 'htop' 관련된 것을 찾는 것
+
+ 
+
+
+사용법
+
+
+설치
+
+ 
+
+cf) 업데이트는 sudo apt-get upgrade htop
+
+- sudo apt-get upgrade 라고만 하면sudo apt를 통해 다운 받은 모든 것들이 업그레이드 됨
+
+ 
+
+삭제는 sudo apt-get remove htop
+
+ 
+
+설치할 수 있는 '목록들을' 업데이트를 먼저 해야함
+
+sudo apt-ge update
+
+ 
+
+ 
+
+// 
+
+ 
+
+지금 이 개념이 중요한 이유는 
+
+-> 내가 필요한 것을 쉽게 다운로드 받을 수 있는 기능이기 때문
