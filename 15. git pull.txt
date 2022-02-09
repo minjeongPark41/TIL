@@ -1,0 +1,36 @@
+상황
+당시 브랜치 : 새로운 pr 다운 받았던 'key-stat' 브랜치 
+
+이 브랜치에서 test 환경을 구축 중이었는데, NODE_ENV=?? 에서 오른쪽에 뭐라고 적어줘야 할지 확인하기 위해 env.json을 가보니 이전에 locasl - setting 해줬던 기록이 하나도 없음.
+
+-> 이유 : local - setting 올리고, PR approve 이후, '그 develop'를 merge해줬어야 했는데 merge를 해줬어야 함
+
+    (내 주석 : git pull origin develop. git pull이 fetch와 merge까지 다 해준다는거니까) 
+
+ 
+
+local-setting 브랜치로 checkout
+
+git pull origin develop
+
+-> 컨플릭트가 난다. (merge를 안해준지 오래되어서 이러함) 
+
+-> 컨플릭트 상황을 가니 .circleci 폴더 내 config.yml이 문제.  
+
+     그 파일을 가보면 이렇게 3칸으로 나뉘어져서 가운데 결과물에 각각 + 하거나 x를 해줄 수 있다. 
+
+내 local 상황	결과물	develop 상황
+내 로컬에만 있는것 중에 추가 시켜서서 반영해줘야하는건 + 
+(예를 들어서 내가 circleci에서 테스트 하려고 브랜치 올려준건 + 해줘야 함)	 	이 곳은 '이미' develop에 올라간 상황. 
+삭제 시켜줘도 된다.
+ 
+
+그리고 git push origin 해당 브랜치 (지금의 경우, local - setting)
+
+- git status 해보면 notting to commit 나옴. (지금 develop 환경과 맞춰준거니)
+
+-> git push origin 해당 브랜치, 이렇게 해서 리모트로 push만 해주면 된다. 
+
+ 
+
+그리고 다시 git checkout 'key-stat' 브랜치 한 다음에 npm run start
