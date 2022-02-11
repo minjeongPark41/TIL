@@ -1,0 +1,80 @@
+일반적으로 쓰이는 '린트'의 의미 : (스웨터의) 보푸라기 같은 것들 ㅎㅎ 
+
+개발 용어 lint (tool) -> 코딩 스타일과 잠재적인 버그를 찾아내주는 것
+
+ 
+
+lint의 종류 : JSLint, JSHint, ESLint
+
+요즘 많이 쓰이는게 ESLint
+
+ 
+
+ESLint가 검사하는 분류
+
+1) 코드 포매팅 : 일관된 코딩 컨벤션을 유지하는 기능 
+
+   ex) 들여쓰기는 몇 칸
+
+2) 코드 품질 : 잠재적인 오류를 찾아내주는 기능
+
+ 
+
+ESLint 특징
+
+노드 패키지로 제공됨 -> npm 명령어로 설치
+npm install eslint
+파일 만들기 touch .eslintrc.js
+빈 객체 만들어서 모듈 만들어주기
+
+        그리고 lint 라는 명령어 등록 (만약 아래 aaa 라고 이름 지어주었으면, npm run aaa 라고 하면 되지~)
+
+// package.json
+{ 
+  //...
+  "scripts": {
+    "lint": "eslint.js"
+  }
+}
+ 
+
+// 
+
+근데 이렇게 설치만 하고 npm run lint 실행한다고 해서 오류를 잡아내주지 않음. 내가 보고 싶은 오류들에 대한 rules를 지정해주어야 함. 
+
+ 
+
+https://eslint.org/docs/rules/
+
+ 
+List of available rules
+
+✓no-unreachabledisallow unreachable code after `return`, `throw`, `continue`, and `break` statements
+
+eslint.org
+ 
+
+recommended 옵션을 다 포함해주고 싶다면,
+
+
+ 
+
+cf) 다른 설정들이 더 필요하다면, 아래처럼 rules로 따로 더 주면 된다. 
+
+
+ 
+
+ 
+
+--fix 옵션
+
+// package.json
+{ 
+  //...
+  "scripts": {
+    "lint": "eslint.js --fix"
+  }
+}
+--fix 옵션을 추가하고 실행하면 자동으로 코드를 수정해서 출력해준다. 
+
+ 
