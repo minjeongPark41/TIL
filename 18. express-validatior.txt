@@ -1,0 +1,42 @@
+설치
+npm install --save express-validator
+ 
+import
+const expressValidator = require('express-validator');
+ 
+
+사용
+const express = require('express');
+const expressValidator = require('express-validator');
+const router = express.Router();
+
+router.post('/park', async (req, res) => {
+    req.checkBody('name', '주석').notEmpty();
+    req.checkBody('phone', '주석(1:Android/2:iOS)').notEmpty().isInt();
+    console.log(req);
+
+    const errors = req.validationErrors();
+
+    if (errors) {
+        res.status(400).json({msg: "메시지"});
+        return
+    }
+})
+ 
+
+서버사이드에서 유효성검사하기 위한 모듈
+req.checkBody()
+request body에서 해당 key 값이 있는지를 확인한다. 
+notEmpty()는 있는지 없는지 확인 (주의점은 그저 check만 한다는 점)
+isInt()는 정수인지 확인
+we have added the express-validation middleware in the main app we now have access to a new 
+checkBody method on the request object.  Any checks that fail will be reported by the req.validationErrors method. 
+-> 즉,checkBody의 fail 결과를 req.validationErrors  여기서 다루는 것
+ 
+
+req.validationErrors()
+
+
+ 
+
+특이하게 성공 시엔 object로, 실패 시엔 boolean으로 결과가 뜬다. 
