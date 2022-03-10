@@ -28,3 +28,13 @@ host에서 실행되는 격리된 각각의 실행 환경 - container
  
 
 터미널에서 docker images 하고 에러가 뜨지 않으면 성공적으로 명령어로 제어할 수 있는 환경이라는 증거
+
+// 3강. 이미지 pull
+
+
+어플을 다운 받는 app store 	docker에서 필요한 sw를 다운 받는 docker hub
+다운 받은 'program'	다운 받은 'image'
+program을 실행하는 것 	image를 실행하는 것
+ 
+
+잘 다운 받았는지 확인하기 위해서는 docker images 눌러서 확인 
