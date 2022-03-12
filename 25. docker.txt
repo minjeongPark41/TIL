@@ -85,3 +85,46 @@ docker rm ws2를 해서 w2를 삭제해주려 했는데 오류가 남.
 
 
 이미지를 삭제할 때는 docker images로 리스트를 보고 이름을 확인한 다음에, docker rmi [이름]을 적어주면 된다. 
+
+ㅡㅡㅡㅡㅡ
+
+5강. 네트워크
+ 
+
+web server가 사용하기 위해서는 두 대의 컴퓨터가 필요
+
+데이터가 저장된 공간 - file system라고 부르겠다. 
+
+
+[도커가 없을 때] 
+
+[도커가 있을 때]
+
+도커가 없을 때는 '웹 서버'를 직접 설치했지만, docker를 이용하면 웹 서버가 container에 설치된다. (이미지를 httpd를 이용하기로 했다면 docker run httpd)
+
+이 container가  설치된 운영체제 = docker host 
+
+하나의 docker host에는 여러가지 컨테이너가 있을 수 있음
+docker host와 container는 각각 독립적인 실행환경이기 때문에, 독립적인 port와 file system을 가지고 있다. 
+
+
+웹 브라우저에서 웹 서버로 접근을 하면 접근이 되지 않는다. 
+
+이유 : 현재 host와 container는 연결이 끊겨져 있기 때문
+
+-> host의 80번 포트와 containier의 80번 포트를 연결시켜준다. 
+
+ 
+명령어 docker run -p 80:80 httpd
+
+앞에가 host, 뒤에가 container 포트
+
+
+이런걸 port forwarding이라고 함.
+
+
+
+Q. 만약에 port가 8000번으로 바뀐다면? 
+
+
+8081로 들어오면 80 (포트의 컨테이너에) 연결시키겠다. 
