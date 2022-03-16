@@ -192,3 +192,33 @@ apt update
 apt install nano
 
 nano index.html -> 이제서야 수정 가능
+
+ㅡㅡㅡㅡㅡ
+
+7강. 호스트와 컨테이너의 파일 시스템 연결
+
+ 
+
+컨테이너 내의 파일을 '직접' 수정하면 위험한 일이 발생한다.
+
+만약 컨테이너가 사라지면 내가 수정해준 것들도 같이 날라가게 되는 것.
+
+
+
+컨테이너의 파일 시스템과 host의 파일 시스템을 연결해준다.
+
+-> 버전 및 백업관리, 수정 등이 편해지게 된다. 
+
+ 
+
+host의 8888 포트와 container의 80 포트를 연결.
+
+v 옵션 사용. 볼륨의 약자
+
+  -v syntax combines all the options together in one field
+
+Desktop 이하 htdocs 디렉토리와 (:) 컨테이너 안에서 웹페이지를 찾도록 약속된 디렉토리인 /user/loca/apach2/htdocs/를 연결시킴
+
+ 
+
+이러면 host 내 파일을 수정하면, host 와 연결된 container 내 파일도 바뀌어서는 화면에 보이게 된다. 
