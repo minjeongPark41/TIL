@@ -40,3 +40,19 @@ Object.keys(params) 가 [ 'a', 'b', 'c', 'd', 'e' ]
 즉, params[a] = 1 이렇게 읽어되게 되는 것이므로 'elemenet'를 뜻하는 자리에 aaa든 bbb든 명칭은 아무거나 써주어도 된다. 
 
 - key값이라 key라고 적어주었을뿐 key라는 변수만 들어가는건 아니라는 점
+
+ㅡㅡㅡㅡㅡ
+
+// filter - true 반환하는 '모든' 원소들로 배열을 만듦
+The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+ 
+
+const params = {a : 1 , b:2, c:null, d:null, e:5};
+const foundKey = Object.keys(params).filter(function(key){
+    return params[key] === null || params[key] === undefined;
+});
+ 
+
+
+ 
