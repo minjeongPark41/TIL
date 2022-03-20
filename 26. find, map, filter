@@ -52,7 +52,24 @@ const params = {a : 1 , b:2, c:null, d:null, e:5};
 const foundKey = Object.keys(params).filter(function(key){
     return params[key] === null || params[key] === undefined;
 });
+
+ㅡㅡㅡㅡㅡ
+
  
+map - 배열을 '변환' 시킴. 새로운 배열을 재생산
+The map() method creates a new array with the results of calling a provided function on every element in this array.
+
+ 
+
+ 
+
+문제 상황 
+-> 무슨 식을 세워도 다 TypeError: params.map is not a function가 난다. 
+
+ 
+
+
+-> key, value 값은 그냥 가지고 올 수 있는건가... 했는데 아니었다. 배열로 만들어줘서 직접 설정을 해줘야했음
 
 
  
