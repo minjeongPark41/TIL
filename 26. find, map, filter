@@ -71,5 +71,57 @@ The map() method creates a new array with the results of calling a provided func
 
 -> key, value 값은 그냥 가지고 올 수 있는건가... 했는데 아니었다. 배열로 만들어줘서 직접 설정을 해줘야했음
 
+ㅡㅡㅡㅡㅡ
 
+// find
+const params = {a : 1 , b:2, c:null, d:4, e:5};
+const foundKey = Object.keys(params).find(key => params[key] === null || params[key] === undefined);
+console.log(Object.keys(params)); //-> [ 'a', 'b', 'c', 'd', 'e' ]
+console.log(foundKey); //-> c
+
+
+//filter
+const params2= {a : 1 , b:2, c:null, d:null, e:5};
+const foundKey2 = Object.keys(params2).filter(function(key){
+    return params2[key] === null || params2[key] === undefined;
+});
+console.log(foundKey2); // -> [ 'c', 'd' ]
+
+
+//map
+const params3 = [
+    {key:'a', value:1},
+    {key:'b', value:2},
+    {key:'c', value:3},
+    {key:'d', value:4},
+    {key:'e', value:5}
+   ]
+// 새롭게 배열을 만들어주는 것이므로 변수 설정
+
+// 첫번째
+const reParams = params3.map(({key, value}) => ({ [key] : value*2 }));
+console.log(reParams); // -> [ { a: 2 }, { b: 4 }, { c: 6 }, { d: 8 }, { e: 10 } ]
+
+// 두번째
+const reParams2 = params3.map(function(obj){
+    const newObj = {};
+    newObj[obj.key] = obj.value*2
+    return newObj
+})
+console.log(reParams2); // -> [ { a: 2 }, { b: 4 }, { c: 6 }, { d: 8 }, { e: 10 } ]
+
+//세번째
+const reParams3 = params3.map(function(key, value){
+    return console.log(key, value, value*5);
+})
+console.log(reParams3);
+
+/*
+{ key: 'a', value: 1 } 0 0
+{ key: 'b', value: 2 } 1 5
+{ key: 'c', value: 3 } 2 10
+{ key: 'd', value: 4 } 3 15
+{ key: 'e', value: 5 } 4 20
+
+*/
  
