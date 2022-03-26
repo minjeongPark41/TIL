@@ -91,4 +91,30 @@ topic 테이블은 title, type, price를 위한 표. 다른 부분은 새롭게 
  
 해결
 
+ㅡㅡㅡㅡㅡ
+3 정규화 
+- No transitive dependencies (이행적 종속성)
+
+ 
+
+
+ 
+
+author_id는 title에 종속되지만, author_name, author_profile의 경우에는 author_id에 종속됨.
+
+즉, 이행적 종속성이 나타나고 있음. (중복의 향기!) 
+
+ 
+
+혹 author_id가 없다고 하더라도, 컬럼명에 prefix가 있는 것을 보고 '독립시킬 가능성이 큰 아이다'라고 무의식적으로 느꼈을 것. 
+
+-> 이 경우 따로 테이블 만들어주고 author_id 주어서 연결시켜주면 됨
+
+ 
+
+ 
+해결
+
+ 
+
  
