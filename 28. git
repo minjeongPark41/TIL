@@ -1,0 +1,56 @@
+[develop]
+
+git clone해서 받으면 master 하나만 존재.
+
+1. 나는 master에서 따서 '로컬' develop 브랜치를 만들어주고, 여기서 git pull origin develop를 한 다음에
+
+2. (리모트와 로컬을 맞추어준) develop에서 feature 브랜치를 만들어서 작업을 해야한다고 생각.
+
+ 
+
+그런데,
+
+[리모트]
+- master에 어떤어떤 내용이 있고
+- develop에 어떤어떤 내용이 있을 것
+
+[로컬]
+- git clone 해서 master만 존재 
+-> master에서 git checkout -b develop로 만든 로컬 develop 브랜치는 master의 내용이 담겨있을 것. 
+
+즉, remote의 develop와 local의 develop가 전혀 다른 내용이 담긴 것
+ 
+
+그렇게(위) 만든 (로컬) develop에 git pull origin develop를 해봤자 
+
+-> 이미 (기능이 더 많을) master와 똑같은 '곳'에 develop의 commit들을 가지고 오는거니, 
+
+'내가 기대하는' develop와 (이건 리모트의 develop)와 실제 내 로컬에 만들어진 develop는 다를 것
+
+ 
+
+ 
+
+그럼, 
+
+remote의 develop는 어떻게 가지고 올 수 있을까?
+
+ 
+
+원격 브랜치를 추적하는 새로운 브랜치 만들기
+git checkout --track -b feature origin/feature
+git checkout -t origin/feature,
+ 
+
+git checkout -b <branch> <remote>/<branch> 명령으로 간단히 트래킹 브랜치를 만들 수 있고,
+--track 옵션을 사용하여 로컬 브랜치 이름을 자동으로 생성할 수 있음
+
+ 
+
+더 생략 가능
+
+만약 리모트에 브랜치가 있고, 로컬에 없으면
+
+git checkout develop 라는 명령어만으로도 리모트 브랜치를 '트래킹' 브랜치로서 생성 가능
+
+ 
