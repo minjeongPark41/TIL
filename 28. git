@@ -53,4 +53,21 @@ git checkout -b <branch> <remote>/<branch> 명령으로 간단히 트래킹 브�
 
 git checkout develop 라는 명령어만으로도 리모트 브랜치를 '트래킹' 브랜치로서 생성 가능
 
- 
+ ㅡㅡㅡㅡ
+
+ [git flow 개념]
+ 핵심은, 
+
+- master에서 작업하지 않고 develop 브랜치를 하나의 중심축으로 삼아서
+
+  (1) 기능 수정들은 feature branch에서
+  (2) 배포할 때는 realeas branch에서 버그 수정 등 배포 후 발생하는 일들을 이곳에서 해준다.  
+
+   틈틈히 develop에 merge 
+
+- realease branch에서 충분히 변경사항을 수정하면
+   (1) master 브랜치에 merge, tag 기능을 통해서 기록
+
+   (2) develop에도 같이 해준다. 계속 수정은 해나가야하니! 
+
+- hotfixes는 긴급한 문제해결을 위해 따로 만든 branch (master, develop 모두에 merge)
