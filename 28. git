@@ -71,3 +71,42 @@ git checkout develop 라는 명령어만으로도 리모트 브랜치를 '트래
    (2) develop에도 같이 해준다. 계속 수정은 해나가야하니! 
 
 - hotfixes는 긴급한 문제해결을 위해 따로 만든 branch (master, develop 모두에 merge)
+
+ㅡㅡㅡㅡㅡ
+
+test.txt 라는 파일을 만들었다고 해보자
+
+ 
+
+1. 셋팅
+(1) 내 로컬에 있는 파일을 원격 저장소와 연결
+
+git init
+
+git remote add origin 원격저장소 주소
+
+// git remote -v 해서 연결 확인
+(2) 커밋해보자
+
+- test.txt 내용 수정 후 커밋
+
+git add test.txt
+git commit -am "master1"
+
+// 버전도 붙이려면
+// git tag 0.1
+ 
+
+cf)
+
+git commit -m = send log message
+
+git commit -am = git add -a + git commit -m
+
+ 
+
+-a option.
+
+This basically tells Git to run git add on any file that is "tracked" - that is, any file that was in your last commit and has been modified. 
+
+
