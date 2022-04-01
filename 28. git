@@ -137,3 +137,27 @@ git log --decorate --all --graph --oneline
 git commit -am "develop 2"
 
 git log --decorate --all --graph --oneline -> develop2는 현재 develop 브랜치에 있는 것을 확인
+
+ㅡㅡㅡㅡㅡㅡ
+
+3. feature 다루기
+(1) feature 브랜치 만든 후에 이동
+
+git checkout -b feature
+
+나는 feature-som 대신에 feature라고 명명지어줌
+ 
+
+git log --decorate --all --graph --oneline -> develop, feature 브랜치에 있는 것을 확인
+
+ 
+
+(2) feature 브랜치 내 'test.txt' 내용 수정 후 커밋
+
+git commit -am "feature3"
+
+ 
+
+git log --decorate --all --graph --oneline -> feature 브랜치에 있는 것을 확인
+
+
