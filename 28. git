@@ -161,3 +161,20 @@ git commit -am "feature3"
 git log --decorate --all --graph --oneline -> feature 브랜치에 있는 것을 확인
 
 
+ㅡㅡㅡㅡㅡ
+
+4. develop에 병합하기
+- 실무에서는 내가 만든 feature 브랜치 내용은 develop에서 pull request 하도록 해주기 때문에, merge 과정은 안간다고 보면 됨. 
+
+ 
+
+(1) develop 브랜치로 이동
+
+git checkout develop
+(2) feature에서 작업해줬던 것을 merge
+
+git merge feature
+
+(3) feture 브랜치는 삭제해줘도 됨
+
+git branch -d feature
