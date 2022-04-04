@@ -178,3 +178,29 @@ git merge feature
 (3) feture 브랜치는 삭제해줘도 됨
 
 git branch -d feature
+
+ㅡㅡㅡㅡㅡ
+
+cf) github에 많이 올리면서 익숙한 명령어로 개념을 살펴보자.
+* 로컬, 리모트 개념 챙겨 *
+
+평소에는 내 PC의 로컬 저장소에서 작업하다가 작업한 내용을 공개하고 싶을 때에 원격 저장소에 업로드
+
+git init을 함으로서 -> .git 이라는 로컬 저장소가 생김
+
+Most other Git commands are not available outside of an initialized repository, so this is usually the first command you'll run in a new project. 
+Executing git init creates a .git subdirectory in the current working directory, which contains all of the necessary Git metadata for the new repository. 
+질문
+
+또 궁금증. repository는 원격 저장소 아닌가? 
+git init을 하면, 현재 폴더 내에 바로 '.git' 저장소가 생김을 항상 봐왔지.
+아직 원격 저장소하고 연결해준 것도 아닌데, 어떻게 원격 저장소 정보들을 알아가지고는 new repository에 대한 metadata들을 가지고 와줄 수 있는거지? 
+ 
+
+답
+
+원격 저장소(Remote Repository): 파일이 원격 저장소 전용 서버에서 관리되며 여러 사람이 함께 공유하기 위한 저장소. 
+로컬 저장소(Local Repository): 내 PC에 파일이 저장되는 개인 전용 저장소. 
+ 
+
+-> repository를 github에서 만든 기억 때문에 원격 저장소라고만 생각했는데ㅎㅎㅎ 아니라는거.
