@@ -204,3 +204,26 @@ git init을 하면, 현재 폴더 내에 바로 '.git' 저장소가 생김을 �
  
 
 -> repository를 github에서 만든 기억 때문에 원격 저장소라고만 생각했는데ㅎㅎㅎ 아니라는거.
+
+ㅡㅡㅡㅡㅡ
+
+git add . 
+
+Adds content to the index or staging area.
+질문
+
+index?? 
+ 
+
+답
+ 
+
+staging area가 index였다. (커밋을 실행하기 전의 저장소와 작업 트리 사이에 존재하는 공간)
+
+ㅡㅡㅡㅡㅡ
+
+git commit -m "커밋 메시지"
+
+--message=<msg> 되는지 확인해보기
+Use the given <msg> as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs. 멀티플 해보기
+The -m option is mutually exclusive with -c, -C, and -F. (이 옵션들과는 같이 사용 불가) 
