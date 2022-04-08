@@ -227,3 +227,29 @@ git commit -m "커밋 메시지"
 --message=<msg> 되는지 확인해보기
 Use the given <msg> as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs. 멀티플 해보기
 The -m option is mutually exclusive with -c, -C, and -F. (이 옵션들과는 같이 사용 불가) 
+
+ㅡㅡㅡㅡㅡ
+
+git branch -M main
+
+-m 
+
+--move
+
+Move/rename a branch, together with its config and reflog.
+-M
+
+Shortcut for --move --force.
+ 
+
+질문 1
+
+맨 처음 올려주는 것으로서 main으로 이렇게 올려주는 작업이 필요한 게 맞는 것 같은데, 왜 그동안 이 명령어를 한 번도 안했지? 
+ 
+
+답
+
+아마 defualt 저장소가 이미 main(혹은 master) 이기 때문
+
+bitbucket에서는 master
+ 
