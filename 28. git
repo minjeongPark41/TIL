@@ -252,4 +252,26 @@ Shortcut for --move --force.
 아마 defualt 저장소가 이미 main(혹은 master) 이기 때문
 
 bitbucket에서는 master
+
+ㅡㅡㅡㅡㅡ
+질문 2
+
+'git branch checkout 브랜치이름' 과의 차이점
+ 
+
+답
+
+$ git checkout -t [원격 저장소의 branch 이름] <- 원격 저장소 branch 이름과 동일한 이름의 로컬 branch를 생성하며 이동
+$ git checkout -b [생성할 branch 이름] [원격 저장소의 branch 이름]
+-> git branch BRANCH_NAME creates a new branch but leaves you on the same branch.
+
+     git checkout -b BRANCH_NAME creates a new branch and checks out the new branch
+
+ 
+
+cf) 확인 필요
+
+-t (track)
+
+-b (branch creation)
  
