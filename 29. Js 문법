@@ -102,3 +102,133 @@ alert(userName) // ⭐️
 
 
 위 사진과의 차이점이 있다면, 4번째줄에 let으로 지역변수를 또 준 것
+
+ㅡㅡㅡㅡㅡ
+
+매개 변수 (parameter)
+- 임의의 데이터를 함수 안에 전달
+
+ 
+
+function showMessage(from, text) {
+  console.log(from + ':' + text);
+}
+
+showMessage('min', 'Hello!') // min:Hello!
+ 
+
+- 함수의 전달된 인자는 '지역변수' from, text에 복사됨
+
+ 
+
+function showMessage(from, text){
+  from = '*' + from + '*';
+  console.log(from + ':' + text);
+}
+
+let from = 'Ahn';
+
+showMessage(from, 'Hello!'); // *Ahn*:Hello!
+
+console.log(from); // Ahn 함수 밖의 값은 변경되지 않음. 함수는 '복사된' 값을 사용함
+ 
+
+ 
+
+기본값 
+- 매개변수에 값을 전달하지 않으면 그 값은 undefined가 됨
+
+ 
+
+function showMessage(from, text){
+  from = '*' + from + '*';
+  console.log(from + ':' + text);
+}
+
+showMessage('Ahn'); // *Ahn*:undefined
+- 매개 변수 2개인 함수에 한 개만 전달해주어도 오류가 나지 않음. undefined로 뜰 뿐
+
+ 
+
+-> 매개변수에 값을 전달하지 않아도 그 값이 undefined가 되지 않게 하려면 기본값(default value)을 설정
+
+매개변수에 = 을 붙이고 설정하고자 하는 기본값을 써주면 됨
+
+ 
+
+function showMessage(from, text="text"){
+  from = '*' + from + '*';
+  console.log(from + ':' + text);
+}
+
+showMessage('Ahn'); // *Ahn*:text
+ 
+
+✅ 복잡한 표현식도 기본값으로 설정이 가능하다. 
+
+ 
+
+function anotherFunction(){
+  console.log("flower");
+}
+
+function showMessage(from, text=anotherFunction()){
+  console.log(from + text ); // You are like a undefined
+}
+
+showMessage('You are like a ')
+ 
+
+🐳
+
+showMessage()로 하면 -> flower가 나옴
+
+원래 위에 예상식은 You are like a undefined가 아니라 You are like a flower인데... 
+
+ 
+
+매개변수 기본값을 설정할 수 있는 또 다른 방법
+
+-> 함수가 실행되는 도중에 기본값을 설정
+
+- 일단 매개변수를 undefined와 비교하여 함수 호출 시 매개변수가 생략되었는지를 확인한다. 
+
+ 
+
+function showMessage(text){
+  if(text==undefined){
+    text='빈 문자열';
+  }
+  console.log(text); // 빈 문자열
+}
+
+showMessage();
+function showMessage (text){
+  text = text || '빈 문자열';
+  console.log(text); // 빈 문자열
+}
+
+showMessage();
+
+function showMessage1 (text='플라워'){
+  text = text || '빈 문자열';
+  console.log(text); // 플라워
+}
+
+showMessage1();
+ 
+
+if문 대신 논리 연산자 || 사용 가능
+
+ 
+
+
+2021년 12월에 새롭게 추가된 문법 
+
+ 
+
+a ?? b의 평가 결과는 다음과 같음
+a가 null도 아니고 undefined도 아니면 a그 외의 경우는 b
+
+ㅡㅡㅡㅡㅡ
+변환 값
