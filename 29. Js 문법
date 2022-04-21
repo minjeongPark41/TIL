@@ -419,4 +419,44 @@ let sayHi = function (){
 let abc = sayHi;
 abc(); // Hello
 
+ㅡㅡㅡㅡㅡ
+함수 표현식 뒤에는 세미콜론을 붙여주는 이유
+
+ 
+
+이유는 간단합니다.
+
+if { ... }, for { }, function f { } 같이 중괄호로 만든 코드 블록 끝엔 ;이 없어도 됩니다.
+
+함수 표현식은 let sayHi = ...;과 같은 구문 안에서 값의 역할을 합니다. 코드 블록이 아니고 값처럼 취급되어 변수에 할당되죠. 모든 구문의 끝엔 세미 콜론 ;을 붙이는 게 좋습니다. 함수 표현식에 쓰인 세미 콜론은 함수 표현식 때문에 붙여진 게 아니라, 구문의 끝이기 때문에 붙여졌습니다.
+콜백함수 
+🐳 TypeError: yes is not a function 남.
+
+function ask(question, yes, no){
+  if(question == 2) yes();
+  else no();
+}
+
+function showOk(){
+  console.log("동의했습니다");
+}
+
+function showCancle(){
+  console.log("취소했습니다.");
+}
+
+ask(2, showOk(), showCancle());
+ 
+
+- 함수 ask의 인수, showOk와 showCancel은 콜백 함수 또는 콜백이라고 함.
+
+- 함수를 함수의 인수로 전달하고, 필요하다면 인수로 전달한 그 함수를 "나중에 호출(called back)"하는 것이 콜백 함수의 개념.
+
+  위 예시에선 사용자가 "yes"라고 대답한 경우 showOk가 콜백이 되고, "no"라고 대답한 경우 showCancel가 콜백이 됨
+
+ 
+
+
+
+
  
