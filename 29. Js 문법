@@ -526,6 +526,73 @@ if (age<18){
 
 welcome();
 
+ㅡㅡㅡㅡㅡ
+화살표 함수 기본
+- 함수 표현식보다 단순하고 간결한 문법으로 함수를 만들 수 있는 방법 = 화살표 함수 (arrow function) 
+
+ 
+
+let func = (arg1, arg2, ... argN) => expression
+let func = function (arg1, arg2, ... argN){
+  return expression;
+};
+이 코드의 축약이라고 할 수 있음
+
+ 
+
+// 
+
+ 
+
+let sum1 = (a,b) => a+b; // 아래 함수의 축약 버전
+
+let sum = function(a,b){
+  return a+b;
+};
+
+console.log(sum1(1,2)); //3
+ 
+
+✅ 인수가 하나밖에 없다면 인수를 감싸는 괄호 생략 가능
+
+ 
+
+let double = n => n*2;
+
+let double1 = function(n){
+  return n*2;
+};
+
+console.log(double(8)); // 16
+ 
+
+✅ 인수가 하나도 없을 때는 괄호를 비어둠. 단, 이때는 괄호 생략이 불가하다. 
+
+ 
+
+let sayHi = () => console.log("안녕");
+
+sayHi(); // 안녕
+
+let sayHi1 = function(){
+  console.log("안녕");
+};
+ 
+
+함수 표현식과 같은 방법으로 사용 가능. 
+
+동적으로 만들 수도 있다. 
+
+ 
+
+let age = 18;
+
+let welcome = (age<18) ?
+  () => console.log("안녕") :
+  () => console.log("안녕하세요");
+
+welcome(); // 안녕하세요
+
 
 
  
