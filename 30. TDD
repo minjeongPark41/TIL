@@ -229,4 +229,49 @@ SW 기능명세
 
 - 수동 테스트보다는 단위 테스트가 신뢰감을 더 줄 수 있다.
 
+ㅡㅡㅡㅡㅡ
+1부. 테스트 주도 개발 기초 - 4. 단위 테스트
+
+jest 설치
+
+npm install --save-dev jest
+
+중복된 문자를 줄여주는지를 테스트
+
+index.js에 해당 코드 존재.
+
+function refineTest(s) {
+  return s.replace("    ", " ").replace("  ", " ");
+}
+
+module.exports = refineTest;
+
+
+index.test.js 파일 새롭게 만들어서
+
+const sut = require("./index");
+// sut의 약자는 system under test
+
+test("연속된 2개의 공백이 중복을 없애서 -> 하나의 공백으로 나오는지를 테스트", () => {
+	const actual = sut("hello  world");
+    expect(actual).toBe("hello world");
+});
+
+
+돌려보면 성공!
+
+
+
+
+// 성공했으나 공백 문자 4개에 대해서도 테스트를 해보자.
+
+
+
+test('4개의 공백이 -> 하나의 공백으로 나오는지를 테스트', () => {
+  const actual = sut("hello    world");
+  expect(actual).toBe("hello world");
+})
+
+
+
 
