@@ -475,3 +475,32 @@ module.exports = refineTest;
 그런데 공백이 7개일 때는 안 됨
 
 -> 그래서 index.js에 또 맨 뒤에 replace.("   ", "  ")를 하나 더 추가해줬더니 됨
+
+ㅡㅡㅡㅡㅡ
+
+테스트 케이스를 먼저! 작성해서 만들어줘보자.
+test.each([
+  ["hello\t world", "hello world"]
+])('테스트코드를 먼저 작성', (first, expected) => {
+  const actual = sut(first);
+  expect(actual).toBe(expected);
+})
+문자 뒤에 tap이 들어간걸 없애주도록 하고 싶은데, 테스트 코드 오류가 남.
+
+
+
+index.js
+
+탭과 공백이 들어간 걸 -> 하나의 공백으로 처리하도록 해주는 코드 하나를 더 추가하면 테스트코드 통과
+
+// 중복된 문자를 줄여주는지를 테스트
+function refineTest(s) {
+  return s.replace("    ", " ")
+    .replace("  ", " ")
+    .replace("  ", " ")
+    .replace("  ", " ")
+    .replace("\t ", " ");
+}
+
+module.exports = refineTest;s
+
