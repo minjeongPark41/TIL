@@ -502,5 +502,55 @@ function refineTest(s) {
     .replace("\t ", " ");
 }
 
-module.exports = refineTest;s
+module.exports = refineTest;
+
+이런식으로 테스트 케이스를 하나하나 일일히 넣으면 온갖 데이터를 대응하는데 한계가 있다.
+
+-> 랜덤 데이터를 넣는다.
+
+
+
+faker 패키지를 활용하여 임의의 문자열을 넣도록 하자.
+
+npm install --save-dev faker
+
+
+
+// faker 패키지를 활용하여 임의의 데이터를 넣어주는 경우
+describe('given banned word', () => {
+  const bannedWord = faker.lorem.word();
+  const source = "hello " + bannedWord;
+  const expected = "hello " + "*".repeat(bannedWord.length);
+
+  test('faker 패키지를 활용하여 임의의 데이터를 넣어주는 경우', () => {
+    const actual = sut(source, bannedWord);
+    expect(actual).toBe(expected);
+  })
+})
+
+
+근데 운영 코드를 수정할 수가 없는데, 랜덤한 값이기에 어떻게 수정을 해줄 수가 없음. (s에 어떤 값이 들어가는지 모르기에)
+
+-> 두 번째 파라미터를 새롭게 정의해준다.
+
+
+
+// 중복된 문자를 줄여주는지를 테스트
+function refineTest(s, options) {
+  s = s.replace("    ", " ")
+    .replace("  ", " ")
+    .replace("  ", " ")
+    .replace("  ", " ")
+    .replace("\t", "")
+    .replace("mockist", "*******")
+    .replace("purist", "******")
+
+  for (const bannedWord of options.bannedWords){
+    s = s.replace(bannedWord, "*".repeat(bannedWord.length));
+  }
+  return s;
+}
+
+module.exports = refineTest;
+ 
 
