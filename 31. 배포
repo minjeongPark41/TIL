@@ -1,0 +1,17 @@
+
+git flow 전략
+
+develop 폴더에서 시작
+- git pull origin develop
+✅ git log 후 commit한 게 다 들어가 있는지 확인
+- 만약 마지막 commit했던게 뭔지 기억이 나지 않으면, 다시 (마지막으로 커밋해준) feature 브랜치로 이동후
+git log로 비교해서 확인
+
+- git flow release start x.x.x
+(✅ 이거는 develop와 환경만 같다면 feature 브랜치에서 해줘도 무방하다.)
+-> 버전은 package.json에서 확인 (현재 버전보다 올려줘서 git flow release start x.x.x 작성하기 + (만약에 git flow가 깔려져 있지 않다면 git flow init) + package.json도 올려준 버전으로 수정)
+package.json을 수정해주었으므로 commit
+git flow release finish x.x.x
+-> 버전 적는 vim이 나오는데 ⭐️태그를 꼭 적어주어야 한다.
+i (insert) 누르고, x.x.x (수정해준 버전)을 적어준다.
+이 버전을 저장해야 하는 것이므로 esc + :wq
