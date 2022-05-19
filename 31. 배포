@@ -15,3 +15,11 @@ git flow release finish x.x.x
 -> 버전 적는 vim이 나오는데 ⭐️태그를 꼭 적어주어야 한다.
 i (insert) 누르고, x.x.x (수정해준 버전)을 적어준다.
 이 버전을 저장해야 하는 것이므로 esc + :wq
+
+git flow release 사용한 다음에 아래 명령어를 실행해주어야 한다. (hotfix도 마찬가지)
+
+git push origin master
+git push origin develop
+git push origin --tags
+
+✅ push는 다 develop 브랜치에서 해줘도 무방하다.
