@@ -23,3 +23,12 @@ git push origin develop
 git push origin --tags
 
 ✅ push는 다 develop 브랜치에서 해줘도 무방하다.
+
+cf) git flow release 전략
+
+→ “개발하고 있던 develop를 release 브랜치를 만들어 merge하고 tag하는 일을 한다.
+develop을 통해서 1.0, 2.0…이런 브랜치를 만들었고
+finish 하면 그 브랜치가 develop와 master에 merge가 된다.
+그리고 merge된 master에는 ‘태그 브랜치’가 생기게 된다.”
+
+→ 따라서 push가 3개가 필요하다.
