@@ -32,3 +32,18 @@ finish 하면 그 브랜치가 develop와 master에 merge가 된다.
 그리고 merge된 master에는 ‘태그 브랜치’가 생기게 된다.”
 
 → 따라서 push가 3개가 필요하다.
+
+ㅡㅡㅡㅡㅡ
+
+aws에서 터미널 입력 부분 (lighthouse)
+
+// 먼저 코드 있는 곳을 들어가야
+ls
+cd xxx // 파일 있는 곳으로 이동
+(cat package.json)
+
+// 내가 develop에 merge 시킨 내용을 들고 와야
+git pull origin develop <- ✅ 이건 개발계 배포일 때 (실제 prod 배포때는 git pull origin master)
+
+// 다시 실행 시키기
+sudo npm run restart
