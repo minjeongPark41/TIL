@@ -7,3 +7,14 @@ was (Web Application Server)
 
 admin server
 특정 도메인에 대한 구성 제공
+
+ㅡㅡㅡㅡㅡ
+const router = express.Router();
+함수 호출한 결과를 router라는 변수로 객체를 담은 것.
+express객체 .Router() 함수 호출하면 → 지금 Router 새로 만드는 것 (초기화)
+-> 그 결과 객체를 return 하는데, 그걸 router 변수 안에 담은 것.
+
+변수 = 담을 수 있는 그릇
+-> 즉, router 변수 안에 객체를 담은 것
+
+ㅡㅡㅡㅡㅡ
