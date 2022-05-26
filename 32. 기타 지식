@@ -18,3 +18,14 @@ express객체 .Router() 함수 호출하면 → 지금 Router 새로 만드는 �
 -> 즉, router 변수 안에 객체를 담은 것
 
 ㅡㅡㅡㅡㅡ
+
+<instaerror.js>
+module.exports = function InstaError(messag,...
+클래스 만들어서 exports 객체에 싣음
+만들고자 하는 모듈을 파일로 만들고 exports 객체의 속성이나 메소드를 정의해주면 모듈을 만들 수 있음
+<users.js>
+const InstaError = require('../../common/instaerror');
+만들어진 모듈을 전역 함수 require()를 이용하여 추출 → 파일을 불러와 결과 값을 변수 에 대입
+exports 객체에 추가해줬던 속성이나 메소드를 사용할 수 있게 됨
+throw new InstaError(req.__(STRINGS.ERR_USER_NOT_FOUND), 404);
+new class인 셈으로 객체를 만든 것
