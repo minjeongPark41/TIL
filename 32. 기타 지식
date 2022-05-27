@@ -29,3 +29,11 @@ const InstaError = require('../../common/instaerror');
 exports 객체에 추가해줬던 속성이나 메소드를 사용할 수 있게 됨
 throw new InstaError(req.__(STRINGS.ERR_USER_NOT_FOUND), 404);
 new class인 셈으로 객체를 만든 것
+
+ㅡㅡㅡㅡㅡ
+함수 레이어가
+<user.js>에 a 함수
+함수 타고 들어가서 b 함수
+또 함수 타고 들어가서 c 함수
+→ 이렇게 있다고 할 때, c 함수에서 오류를 내면 ‘맨 처음’ 레이어인 <user.js>의
+try-catch 부분의 catch 부분에서 ‘항상’ 처리해준다.
