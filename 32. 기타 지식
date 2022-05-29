@@ -42,3 +42,12 @@ try-catch 부분의 catch 부분에서 ‘항상’ 처리해준다.
 return cache.get(cacheKey);
 나는 그냥 ‘캐시를 리턴해주네’ 하고 넘어갔었는데, 그러다보니 코드를 해석하는 부분에 있어서 오해가 나타나 지장을 주었음
 → 정확한 해석 : ‘cacheKey를 key로 cache에서 get해오는 값’
+
+ㅡㅡㅡㅡㅡ
+	Q. const uidSocial = req.body.UID_SOCIAL;
+에서 body란 어떤 body인가.
+→ body의 종류 (1) request body (2) response body
+→ 여기서는 request body (요청받을 때 정보가 있는 body ↔︎ 응답해줄 때의 정보가 있는 body)
+
+
+→ response body는 res.json({ user, jwt: UserAuthenticator.getJWTToken(user) }); 이때 사용하는 body. 주석이 붙여넣기가 안되었는데 주석까지 적으면 res.json(body:{위에 내용})임
