@@ -51,3 +51,9 @@ return cache.get(cacheKey);
 
 
 → response body는 res.json({ user, jwt: UserAuthenticator.getJWTToken(user) }); 이때 사용하는 body. 주석이 붙여넣기가 안되었는데 주석까지 적으면 res.json(body:{위에 내용})임
+
+ㅡㅡㅡㅡㅡ
+	sandbox.stub이 하는 기능
+기존의 것이 호출되지 않게 해줌
+실제 함수를 바꿔서 조작 가능 (전달되는 파라미터 값을 ‘조작’하여 테스트 수행 가능) - 맞음.
+힌트) class, method 이름, 그리고 세번째 인자를 보내줌으로서 더 뭔가를 하게 
