@@ -105,3 +105,38 @@ Q. 우리가 테스트 하려고 하는게 무엇인가 : '/login/facebook'
 → 라우터 단위의 통합테스트로 바꾸기
 
 ㅡㅡㅡㅡㅡ
+
+이건 내가 처음에 작성해줬던 잘못된 테스트코드
+ 
+ const result = sandbox.stub(dbHelper, 'promisedQuery').callsFake((conn) => {
+      return { name: 'park' };
+    });
+    const user = await User.findByLoginMethodAndUid(undefined, loginMethod, uidSocial);
+    console.log(user);
+  });
+
+→ 에러 : TypeError: Cannot read property 'NAME' of undefined
+→ undefined'의' name property를 읽을 수 없다는 뜻
+
+
+실제 코드 : user.NAME = rows[0].NAME;
+즉, rows[0]을 읽을 수가 없다는 것.
+-> rows는? promisedQuery를 통해 가지고 온 값. 그리고 그 값은 내가 mock으로 처리를 해줬지. {name : ‘park’}이라고
+잘못된 부분 1) 배열이 아니기에 rows[0]을 읽을 수가 없는 것
+->
+ 
+1return [name:'park']
+잘못된 부분 2) 배열 안에 저렇게 넣어서 key값을 가지고 올 수가 있나? 배열 안에는 뭐가 올 수 있나? ('다' 올 수 있다. 즉, 딕셔너리도 올 수 있다.) + NAME이라고 실제 코드가 준 것처럼 해야함
+->
+ 
+1return [{NAME:'park'}]
+
+
+함수 호출 결과 (user)
+ 
+
+ 
+
+
+최종 테스트 코드 작성
+→ user.NAME.should.be.eql('park');
