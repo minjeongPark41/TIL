@@ -150,3 +150,14 @@ Q. 우리가 테스트 하려고 하는게 무엇인가 : '/login/facebook'
 - class명을 나는 snake식으로 적어주었는데 회사에서 클래스명은 Pascal식
 ‘저절로’ 작성되는 것들 (라이브러리나 식)은 여기서 적용 x
 -> “auto DDL을 하려했다면 was에서 하면 했지, 지금은 was의 side 프로젝트인데 적용x”
+
+ㅡㅡㅡㅡㅡ
+require('should')
+
+const should로 라이브러리 should를 가지고 온 결과를 변수에 담아서 사용해주지 않아도 되는 이유
+→ (문법상) (파일 내 모든) object에 should라는 property가 생김.
+
+
+그리고 무엇보다도 const should로 해준다고 한들, 그 변수 자체를 활용하지 않기 때문.
+res.body.order.ORDER_VOUCHER_PAYLOAD.should.have.properties(['PAYMENT_METHOD']);
+→ 여기에서밖에 should가 쓰이지 않는데, property로서 쓰인 것이니.
