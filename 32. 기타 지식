@@ -161,3 +161,9 @@ const should로 라이브러리 should를 가지고 온 결과를 변수에 담�
 그리고 무엇보다도 const should로 해준다고 한들, 그 변수 자체를 활용하지 않기 때문.
 res.body.order.ORDER_VOUCHER_PAYLOAD.should.have.properties(['PAYMENT_METHOD']);
 → 여기에서밖에 should가 쓰이지 않는데, property로서 쓰인 것이니.
+
+ㅡㅡㅡㅡㅡ
+package.json, package.jsonlock을 나눠 놓는 이유
+만약 package.json 에 패키지 버전을 콕 찝어 정해놓는다면,
+프로젝트에서 사용하고 있는 패키지의 중요한 버그 수정이 이루어질 때 마다 프로젝트의 package.json 에 적혀있는 버전도 수정해주어야하기 때문.
+모든 크고 작은 패키지들의 릴리즈에대해 항상 추적하고 수정해야하는 엄청난 귀찮음과 수고스러움을 version range 가 해결해주고 있는 것!
