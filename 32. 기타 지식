@@ -167,3 +167,31 @@ package.json, package.jsonlock을 나눠 놓는 이유
 만약 package.json 에 패키지 버전을 콕 찝어 정해놓는다면,
 프로젝트에서 사용하고 있는 패키지의 중요한 버그 수정이 이루어질 때 마다 프로젝트의 package.json 에 적혀있는 버전도 수정해주어야하기 때문.
 모든 크고 작은 패키지들의 릴리즈에대해 항상 추적하고 수정해야하는 엄청난 귀찮음과 수고스러움을 version range 가 해결해주고 있는 것!
+
+ㅡㅡㅡㅡㅡ
+	
+ 
+OrderVoucherModel.findOneByOrderNo = ({ orderNo, transaction, errorNotFound = true }) => {
+  return OrderVoucherModel.findOne({
+    where: {
+      ORDER_NO: { [Op.eq]: orderNo },
+    },
+    transaction,
+  }).then((one) => {
+    if (errorNotFound && !one) {
+      throw new InstaError(
+        STRINGS.ERR_NOT_FOUND,
+        404,
+      );
+    }
+    return one;
+  });
+};
+
+
+errorNotFound가 필요한 이유
+→ 만약에 errorNotFound가 false값이라면? 8번째 조건문을 읽지 않고 return one;으로 갈 것 (만약에 one이 없으면 return null이 되겠지)
+
+
+이러한 flag를 넣는 이유는,
+데이터 별로 데이터가 없으면 오류를 발생시켜야 할 것이 있고, 데이터가 없어도 오류가 아닌 것들이 있는데 그런 check를 ‘모델 단’에서 하는게 바람직하기 때문
