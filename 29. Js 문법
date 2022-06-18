@@ -713,3 +713,25 @@ await는 ‘이 부분만큼은 동기처럼 해주겠다’라는 것
 함수 호출해서 변수 user에 넣어줘 - 라는 ‘약속’만 한 것
 그래서 Promise { <pending> }가 호출된 것
 → 내가 원하는 user를 출력하기 위해서는? await를 걸어서 함수 호출 후 데이터가 담길 때까지 기다린 후에, 출력을 한다.
+
+ㅡㅡㅡㅡㅡ
+static 함수
+정적 메서드는 아래와 같이 클래스 안에서 static 키워드를 붙여 만들 수 있음
+클래스 본체만 호출 가능
+
+class User {
+  static staticMethod() {
+    alert(this === User);
+  }
+}
+
+User.staticMethod(); // true
+object 함수
+클래스 인스턴스들이 마구 호출 가능
+👍 (여기 글 숙지하기) https://seo-tory.tistory.com/47
+
+
+mockDb(), restoreDb() 함수는 object 함수
+여기서(위의 사진) this란?
+→ 객체
+-> 즉, sequelizeDbMockHelper.transaction가 존재하게 되는 것
