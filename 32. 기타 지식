@@ -205,3 +205,29 @@ orderNo = ‘아무 번호’로 orderNo가 들어갈 수도 있지. 그런데 �
 - 지금 ‘현재’ 코드 상태에서는 orderNo에 어떤걸 넣어줘도 에러가 안나는게, ‘그 주문번호’에 맞는 ‘특정 주문’이 없을 때 에러를 처리해주는게 없기 때문
 -> ✅ findOrderWithOrderNo(orderNo)로 결과(주문)가 있는지 없는지 코드를 추가해주자였던 것
 
+ㅡㅡㅡㅡㅡ
+질문 : http request parameter에 value를 넘길 수 있는 방법 3가지
+query string
+header
+body
+
+
+각각 가지고 올 수 있는 방법
+req.query
+req.get()
+req.body
+
+
+1,3의 query와 body는 둘 다 객체라 뒤에 바로 property로 가지고 올 수 있다. 그러나 get은 함수이기 때문에 인자로 key 값을 넣어주어야 한다.
+
+
+cf) req.params.xxx
+→ epress 기능 - 동적으로 파라미터를 가지고 와준다. path variable (여러개의 Path를 하나의 펑션으로 처리해주기 위해 적고, 또 그걸 가지고 와준다.). http쪽이 아님
+
+
+다시 함수를 읽어보자.
+const countryCode = req.get(CONSTANTS.HEADER_COUNTRY_CODE) || CONSTANTS.DEFAULT_COUNTRY_CODE;
+req.get은 header에서 데이터를 가지고 와주는거지
+()안에 있는게 key 값으로 되어서 header에서 데이터를 가지고 와주는데, 없을 수도 있으니 그 때는 default 값으로서 뒤에코드를 사용하겠다는거지.
+cf) 더 정확한 표현 - 헤더 파라미터
+
