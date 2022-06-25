@@ -237,3 +237,63 @@ cf) 더 정확한 표현 - 헤더 파라미터
 html을 고쳐줬는데 왜 안나오지? → ‘해당 코드를 잘못 짚어준 것은 아닐까’
 다른 비슷하게 쓰여진 코드는 어떻게 해주고 있지? (return $sce.trustAsHtml('<span class="badge badge-IW">인스타워시 App</span>'); 라고 고쳐줬어야 오류가 해결되는거였는데, 다른 곳에서 $sce.trustAsHtml라고 쓰인 곳이 있었다.)
 그리고 ‘was 파일에서는 나오는데… 코드가 똑같은데?'라는 생각은 전혀 생산적이지 못하다. → 오류 해결에 집중했으면 좋았을 것이다.
+
+ㅡㅡㅡㅡㅡ
+
+상황
+쿼리 호출 결과가 order 변수에 담기길 기대하는데 undefined가 나오는 상황
+ 
+
+AdminOrderService.prototype.findOrder = async (orderNo) => {
+  try {
+    await SequlizeBase.transaction(async (transaction) => {
+      const order = await Order.findOrderForAdmin({ orderNo, transaction, errorNotFound: true });
+      return order;
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+→ 이 함수를 ‘보시자마자’ cto님은 order 저거 undefined 나오겠다고 하심.
+
+
+앞에 router 부분에서 위 함수를 호출해주고 있는 것
+const order = await adminOrderService.findOrder(orderNo);
+→ 그래서 위에서 5번째줄에 return order를 적어줬던 것
+
+
+개념
+Q. 지금 위 코드에서 ‘함수 선언’의 부분은 어디인가. 두 곳이 있다.
+→ 첫 번째줄하고…. (나는 나머지 하나를 골라내지 못함)
+
+
+Q. 첫번째줄에서 AdminOrderService.prototype.findOrder = 까지의 부분이 뭘 나타내는 것인가
+→ 왼쪽 부분을 오른쪽에 담겠다는 대입.
+
+
+Q. js에서 함수 선언을 하는 방법은 무엇 무엇인가.
+화살표 함수 (최신 방식)
+function
+✅ prototype 개념 복습 필요
+→ 즉, async ~ 부분부터가 함수를 선언하는 시작이다. (js는 특이하게 함수 선언을 변수에 담아줄 수도 있는 것이고)
+→ 3번째줄'도' 함수 선언인 것
+
+
+Q. 5번째줄에서 return order를 해준 이유는 ‘어느 함수’에게 해주려 했던건가?
+→ 첫번째줄의 findOrder 였겠지만, 실상은 ‘가까운 함수 선언’ transaction 부분에서 지금 해주고 있는 셈이다.
+
+
+따라서 이렇게 바꾸어야 한다.
+ 
+AdminOrderService.prototype.findOrder = async (orderNo) => {
+  try {
+    let order;
+    await SequlizeBase.transaction(async (transaction) => {
+      order = await Order.findOrderForAdmin({ orderNo, transaction, errorNotFound: true });
+    });
+    return order;
+  } catch (error) {
+    throw error;
+  }
+};
