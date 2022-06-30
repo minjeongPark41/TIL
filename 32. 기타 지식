@@ -311,3 +311,14 @@ AdminOrderService.prototype.findOrder = async (orderNo) => {
 ㅡㅡㅡㅡㅡ
 
 앞에 sandbox.stub이 있지. sandbox가 무슨 역할을 하는가? 쿼리식에 실제 반영이 되지 않도록 mocking 해주는 역할을 함. 즉, 트랜잭션을 가지고 오기는 했지만 실제 db에는 commit을 하지 않게 해서 반영이 안되도록 해주겠다는 것
+
+ㅡㅡㅡㅡㅡ
+
+쿼리의 결과를 들고와주는 70번째줄이 아예 읽혀지지 않았다.
+왜그러지?라고만 생각했었는데,
+✅ 이 사고 과정을 거쳤으면 더 좋았을 것이다.
+기존에는 돌아갔던 코드. 현재 이 브랜치에서 바뀐건? 어제 바꿔준 함수. 뭐가 영향이 끼친걸까?
+ 
+this.sandbox.stub(SequelizeDatabase, 'transaction', () => this.transation);
+→ SequelizeDatabase(객체)의 transaction(함수)를 만나면, () => this.transaction 해주겠다.
+- 즉, 70 ~ 75번째줄로 뭘 써주든 결과가 이미 정해져있도록 코드를 바꿔준 것
