@@ -322,3 +322,14 @@ AdminOrderService.prototype.findOrder = async (orderNo) => {
 this.sandbox.stub(SequelizeDatabase, 'transaction', () => this.transation);
 → SequelizeDatabase(객체)의 transaction(함수)를 만나면, () => this.transaction 해주겠다.
 - 즉, 70 ~ 75번째줄로 뭘 써주든 결과가 이미 정해져있도록 코드를 바꿔준 것
+
+ㅡㅡㅡㅡㅡ
+
+let condition = '';
+     if (excludeIW) {
+       condition = mysql.format(' AND CODE_SHORT != ? ', CONSTANTS.PLATFORM_INSTAWASH);
+     }
+
+
+✅ 쿼리식에서 args(arguments)는 ? 뒤에 항상 이렇게 표현됏었다는걸 알고 해석해냈으면 좋았을 것 같다.
+→ excludeIW 가 있는 경우에는, AND CODE_SHORT != CONSTANTS.PLATFORM_INSTAWASH 라는 식으로 넣어줘 - 라는게 되겠지.
