@@ -333,3 +333,26 @@ let condition = '';
 
 ✅ 쿼리식에서 args(arguments)는 ? 뒤에 항상 이렇게 표현됏었다는걸 알고 해석해냈으면 좋았을 것 같다.
 → excludeIW 가 있는 경우에는, AND CODE_SHORT != CONSTANTS.PLATFORM_INSTAWASH 라는 식으로 넣어줘 - 라는게 되겠지.
+
+ㅡㅡㅡㅡㅡ
+
+git flow relese 전략
+
+
+상황. feature 브랜치 → 실제 서버 배포까지 해보기
+feature 브랜치에서 기능 개발 완료
+PR 올려서 확인받은 후 develop에 merge
+
+
+Q. 실제 서버에는 어떻게 배포를 해줄까?
+→ git flow release 전략을 사용
+먼저 master, develop에서 각각 git pull 해줘서 맞춰주기
+develop 가서 git flow release start 버전. 해서 시작
+package.json에서 버전 올린 다음 커밋
+git flow release finish
+-> 2번 vim으로 버전 쓰는게 나오는데 다 써줘야 함!!
+(나는 위에를 안해줘서 여기서 멈췄는데, 아마 정상대로 해줬더라면 아래 명령어를 해줬을 것. 즉, master에도 기능 반영이 된 것)
+git push origin master
+git push origin develop
+git push origin --tags
+그리고 배포
