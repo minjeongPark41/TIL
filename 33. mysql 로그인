@@ -1,0 +1,13 @@
+sql 접속 개념
+mysql -u root -p instawash
+
+root는 -u 옵션 준 것의 값. 즉, user
+instawash는?
+-> 비밀번호. 땡
+-> 데이터베이스명이다.
+-> 저렇게 -p라고 적으면 아래 비밀 번호를 적는게 나와서, 보안 목적으로서 다른 사람이 보지 않게 해주는 옵션.
+mysql -u root -ppassword instawash
+
+이때 비밀번호가 password.
+주의사항은 -p와 띄어쓰기를 해주지 않음. (띄어쓰기 해주면 데이터베이스로 인식을 해주기 때문)
+
