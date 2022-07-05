@@ -11,3 +11,23 @@ mysql -u root -ppassword instawash
 이때 비밀번호가 password.
 주의사항은 -p와 띄어쓰기를 해주지 않음. (띄어쓰기 해주면 데이터베이스로 인식을 해주기 때문)
 
+ㅡㅡㅡㅡㅡ
+sql 접속 시 필요한 id password 정보 얻기
+개념만 위와 같을 뿐, id와 password는 어디서 얻어야할까.
+
+→ env.json 파일
+
+각각 자신들의 (이 파일을 clone 받아서 열어본 사람들) 로컬 환경 셋팅을 해준 것을 볼 수 있다.
+
+→ 만약 로컬 환경 셋팅이 없다면? 뭘 기준으로 열어주면 될까?
+
+즉, env.NODE_ENV에 있는 정보 || (
+혹은) ‘development’ 를 nodeENV라고 삼겠다라는 것
+
+→ 즉 디폴트 값은 ‘development’이니 env.json 파일에서 ‘development’ 부분을 사용하면 된다.
+
+ㅡㅡㅡㅡㅡ
+
+
+
+
