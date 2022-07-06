@@ -28,6 +28,21 @@ sql 접속 시 필요한 id password 정보 얻기
 
 ㅡㅡㅡㅡㅡ
 
+cli로 sql 접속을 해보자
+우선 docker를 켜준 상태 (port 확인 방법은 위에 정리)
+
+그리고 mysql -u root -ppassword instawash
+
+그리고 비밀번호 누르는 행이 새롭게 나오고, password 눌렀는데도 계속 로그인이 되지 않음.
+ 
+
+mysql --help 눌러서 port 번호 같이 적어주는 옵션을 찾아서 해봄
+
+ 
+
+
+-P 를 해주거나 --port=9877을 해보거나.
+
 
 
 
