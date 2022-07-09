@@ -43,6 +43,45 @@ mysql --help 눌러서 port 번호 같이 적어주는 옵션을 찾아서 해�
 
 -P 를 해주거나 --port=9877을 해보거나.
 
+ㅡㅡㅡㅡㅡ
+그런데도 계속 연결이 되지 않음
+접속 오류를 해결해보자
+ 
 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+
+문제 원인
+2002 에러 코드를 검색
+-> 연결 관련 문제다. 
+-> docker 실행 후 다시 mysql 접속 시도.
+-> 그래도 계속 저 위의 에러 존재.
+
+ 
+
+2 - 1. 에러 이유를 정확히 읽어보자.
+
+ 
+
+
+현재 local에서는 mysql이 위치한 곳은?
+
+-> 바로 docker 안이다. 
+
+이곳의 port는 3306 (compose up 한 뒤 맨 아래 출력되는 결과물에서 알거나 or 직접 프로젝트 내 docker>local_setting>mysql>dockerfile에서 알거나)
+ 
+
+docker 내 mysql의 port 번호 	내 터미널에서 mysql의 port 번호
+3306	9877
+ 
+
+When the host is "localhost", MySQL Unix clients use a Unix socket, AKA Unix Domain Socket, rather than a TCP/IP socket for the connection
+
+출처 :
+
+Is this pdo bug fixed now?
+
+ 
+
+즉, ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) 라는 오류가 계속 났던 이유는 docker 내 mysql, 즉 local과 다른 환경(내 언어: 원격 가상 공간) 에 연결을 시켜줘야 하는데 내 터미널 내에서(로컬에서) 연결을 시도하니 docker 내 mysql은 통신을 할 수 없는 것
 
 
