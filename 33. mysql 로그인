@@ -84,4 +84,39 @@ Is this pdo bug fixed now?
 
 즉, ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) 라는 오류가 계속 났던 이유는 docker 내 mysql, 즉 local과 다른 환경(내 언어: 원격 가상 공간) 에 연결을 시켜줘야 하는데 내 터미널 내에서(로컬에서) 연결을 시도하니 docker 내 mysql은 통신을 할 수 없는 것
 
+ㅡㅡㅡㅡㅡ
+
+해결
+
+ 
+ 
+docker를 띄운 터미널에서 docker ps를 눌러보면 mysql container가 띄어진 걸 볼 수 있음. 
+
+-> '이곳에' 접속을 해주면 됨. 
+
+ 
+
+ 
+docker exec 명령어를 사용해서 내가 원하는 container 들어가기
+
+→ docker exec -it [NAME] /bin/bash
+
+ 
+
+
+ 
+
+맨 첫번째 명령어는 오류가 난 것을 알 수 있음
+
+-> 뒤에 /bin/bash까지 붙여준다. 
+
+ 
+
+그러면 mysql에 접속하기 위해 로그인 명령어를 입력할 수 있게 되고, 접속이 된다! 
+
+ 
+
+p.s mysql > 다음에 이제 mysql 명령어들을 입력하고 결과를 받게 되는데 ' ; ' 붙여주는게 필수! 
+
+붙여주지 않으면 계속 명령어를 작성하는줄 알고 enter를 쳐도 입력을 받는 line이 계속 뜬다. 
 
