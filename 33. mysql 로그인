@@ -120,3 +120,29 @@ p.s mysql > 다음에 이제 mysql 명령어들을 입력하고 결과를 받게
 
 붙여주지 않으면 계속 명령어를 작성하는줄 알고 enter를 쳐도 입력을 받는 line이 계속 뜬다. 
 
+ㅡㅡㅡㅡㅡ
+오류 : Error: ER_NO_SUCH_TABLE: Table 'instawash.tb_admin_employee_user' doesn't exist
+ 
+
+mysql> err.sql;
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'err.sql' at line 1
+
+ 
+
+ 
+
+실수했던 것 - api를 살피지 않았던 것
+
+ 
+
+이전 admin 페이지에서는 로그인 시 정보가 tech_admin 테이블에서 사용해준게 맞지만, 그게 같을거라는 보장은 0.1%도 존재하지 않음.
+
+ 
+
+
+tb_admin_employee_user!
+
+ 
+
+이 테이블이 존재하지 않는다는 것이며, 여기에 db를 넣어줘야 함.
