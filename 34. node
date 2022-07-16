@@ -54,3 +54,42 @@ npm, 린터, 포매터
 - package.json를 쉽게 만들 수 있는 방법은
 
 -> npm init -y (여기서 y는 yes의 줄임말이라고 생각)
+
+formatting
+
+- 문법 오류를 잡아내주는 것 
+
+- prettier를 설치해보자
+
+npm install --save-dev prettier
+
+{
+  "scripts": {
+    "test": "echo \"hi\""
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
+-> 처음으로 의존성 내용이 생김
+
+-> 버전 앞에 ^ 표시는 버전이 이게 아닐 수도 있다는 뜻
+
+    정확한 버전은 package-lock.json 파일에 있다. 
+
+ 
+
+
+진짜 버전이 2.6.2군~
+-> 그래서 여럿이서 협업을 할 때는 package-lock.json도 같이 커밋해주어야 한다. 
+
+ 
+
+
+ 
+
+node_modules 폴더도 생김
+
+- 이 프로젝트가 의존하고 있는 패키지들
+
+- .bin은 바이너리 파일들
